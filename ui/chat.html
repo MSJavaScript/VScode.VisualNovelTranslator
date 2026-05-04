@@ -354,7 +354,9 @@
 
 
 
-    function restoreHistory(history) {
+    function restoreHistory(history, currentSourceLang, currentTargetLang) {
+        sourceLang.value = currentSourceLang;
+        targetLang.value = currentTargetLang;
         if (!Array.isArray(history)) {
             return;
         }
@@ -385,7 +387,7 @@
                 chat.scrollTop = chat.scrollHeight;
                 break;
             case 'restoreHistory':
-                restoreHistory(message.history);
+                restoreHistory(message.history, message.currentSourceLang, message.currentTargetLang);
                 break;
             case 'error':
                 chat.insertAdjacentHTML('beforeend', '<div class="message assistant" style="background: #831843; color: white;">' + message.text + '</div>');

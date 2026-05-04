@@ -278,7 +278,7 @@ function openChatWindow() {
 				currentTargetLang = message.targetLang;
 				break;
 			case 'requestHistory':
-				chatPanel?.webview.postMessage({ command: 'restoreHistory', history: conversationHistory });
+				chatPanel?.webview.postMessage({ command: 'restoreHistory', history: conversationHistory, currentSourceLang: currentSourceLang, currentTargetLang: currentTargetLang });
 				break;
 			case 'clearHistory':
 				await eraseAllSlots(); // Clear all slots on the server
