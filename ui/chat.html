@@ -362,8 +362,8 @@
             const isUser = item.role === 'user';
             let content = '';
             if (isUser) {
-                const index_of_content_start = item.content.indexOf('explanation:');
-                content = item.content.slice(index_of_content_start + 12);
+                const index_of_last_newline = item.content.lastIndexOf('\n'); 
+                content = item.content.slice(index_of_last_newline + 1).trim();
             } else {
                 content = item.content;
             }
